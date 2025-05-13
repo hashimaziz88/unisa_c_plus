@@ -24,7 +24,6 @@ void displayOutput(int height, int width, int length, int volume) {
         size = "Medium";
     else
         size = "Large";
-    cout << "Size: " << size << endl;
 }
 int main() {
     for (int i = 0; i < 5; ++i) {
