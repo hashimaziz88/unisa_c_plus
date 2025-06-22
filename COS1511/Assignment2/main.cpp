@@ -1,17 +1,8 @@
-#include <iostream> // for screen/keyboard i/o
-#include <fstream>  // for file
-#include <cstdlib>  // for exit
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
 using namespace std;
 
-// Precondition:
-// The input file is a text file.
-// The input file has been opened.
-//
-// Postcondition:
-// The output file is a text file.
-// The output file has been opened.
-// Output file will be similar to input file except for all numbers 0 to 7
-// that will be replaced with the character as specified in the question
 
 void checkFile(ifstream& infile)
 {
@@ -66,22 +57,18 @@ int main()
     {
         if (ch >= '0' && ch < '8')
         {
-            index = int(ch - '0'); // This gives us the numeric version
-                                   // (i.e. 0 – 7 of the characters '0' - '7').
+            index = int(ch - '0');
             outfile << convert[index];
         }
         else
             outfile << ch;
 
         infile.get(ch);
-    } // end while !infile.eof
+    }
 
     infile.close();
     outfile.close();
 
-    // This part was not required, but it is always a good idea to read the file
-    // that was created to make sure it is correct.
-    // We first read the original input file, and display its content
 
     indisplay.open(inName.c_str());
     if (indisplay.fail())
@@ -93,9 +80,6 @@ int main()
     cout << endl << "The contents of the input file is : " << endl << endl;
     checkFile(indisplay);
     indisplay.close();
-
-    // Now we read the file that was created as an output file and display the
-    // content
 
     outdisplay.open(outName.c_str());
     if (outdisplay.fail())
